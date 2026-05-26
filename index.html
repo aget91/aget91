@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aget91 SME Transformation | Your Growth, Our Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#1a0533;--purple:#5b21b6;--mid:#7c3aed;--light:#a78bfa;--pale:#ede9fe;--frost:#f5f3ff;--white:#ffffff;--ink:#1e1b2e;--muted:#6b7280}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(167,139,250,0.15)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-logo-mark{width:34px;height:34px;background:linear-gradient(135deg,var(--purple),var(--light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:white;flex-shrink:0}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--deep);letter-spacing:.05em}
+.nav-logo-text span{color:var(--mid)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--mid)}
+.nav-cta{background:var(--deep)!important;color:white!important;padding:.5rem 1.2rem;border-radius:6px}
+.nav-cta:hover{background:var(--purple)!important}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.5rem;background:none;border:none}
+.hamburger span{display:block;width:24px;height:2px;background:var(--deep);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* MOBILE MENU */
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:white;border-bottom:1px solid rgba(167,139,250,.15);padding:1.5rem 2rem;flex-direction:column;gap:1.2rem;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.mobile-menu a{text-decoration:none;font-size:.9rem;font-weight:500;color:var(--ink);padding:.5rem 0;border-bottom:1px solid var(--pale)}
+.mobile-menu a:last-child{background:var(--deep);color:white;text-align:center;padding:.75rem;border-radius:8px;border:none}
+.mobile-menu.open{display:flex}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:7rem 4rem 4rem;position:relative;overflow:hidden;gap:3rem}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(167,139,250,.15) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--pale);border:1px solid rgba(167,139,250,.4);border-radius:100px;padding:.4rem 1rem;font-size:.75rem;font-weight:500;color:var(--purple);letter-spacing:.05em;text-transform:uppercase;margin-bottom:1.5rem;animation:fadeUp .6s ease both}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--mid);border-radius:50%;flex-shrink:0}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4.5vw,4.2rem);font-weight:700;line-height:1.1;color:var(--deep);margin-bottom:1.25rem;animation:fadeUp .6s .1s ease both}
+.hero-title em{font-style:italic;color:var(--mid)}
+.hero-sub{font-size:1rem;line-height:1.7;color:var(--muted);margin-bottom:2rem;font-weight:300;animation:fadeUp .6s .2s ease both}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
+.btn-primary{background:var(--deep);color:white;padding:.85rem 1.8rem;border-radius:8px;text-decoration:none;font-size:.88rem;font-weight:500;letter-spacing:.03em;transition:all .2s;border:2px solid var(--deep);cursor:pointer;display:inline-block;white-space:nowrap}
+.btn-primary:hover{background:var(--purple);border-color:var(--purple);transform:translateY(-1px)}
+.btn-secondary{background:transparent;color:var(--deep);padding:.85rem 1.8rem;border-radius:8px;text-decoration:none;font-size:.88rem;font-weight:500;letter-spacing:.03em;transition:all .2s;border:2px solid rgba(91,33,182,.25);display:inline-block;white-space:nowrap}
+.btn-secondary:hover{border-color:var(--purple);color:var(--purple);transform:translateY(-1px)}
+
+/* HERO CARD */
+.hero-visual{display:flex;justify-content:center;align-items:center;animation:fadeUp .8s .2s ease both}
+.hero-card{background:white;border:1px solid rgba(167,139,250,.2);border-radius:20px;padding:1.75rem;width:100%;max-width:360px;box-shadow:0 20px 60px rgba(91,33,182,.1)}
+.hero-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
+.hero-card-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--deep)}
+.hero-card-badge{font-size:.68rem;background:#d1fae5;color:#065f46;padding:.2rem .55rem;border-radius:100px;font-weight:500;white-space:nowrap}
+.metric-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.25rem}
+.metric{background:var(--frost);border-radius:10px;padding:.85rem}
+.metric-val{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--purple);line-height:1;margin-bottom:.2rem}
+.metric-label{font-size:.68rem;color:var(--muted);font-weight:400;line-height:1.3}
+.chart-area{background:var(--frost);border-radius:10px;padding:.85rem;height:72px;display:flex;align-items:flex-end;gap:5px}
+.bar{flex:1;border-radius:3px 3px 0 0;background:linear-gradient(180deg,var(--mid),var(--light));opacity:.7;transition:opacity .2s}
+.bar:hover{opacity:1}
+.bar:nth-child(1){height:30%}.bar:nth-child(2){height:45%}.bar:nth-child(3){height:40%}.bar:nth-child(4){height:60%}.bar:nth-child(5){height:55%}.bar:nth-child(6){height:75%}.bar:nth-child(7){height:70%}.bar:nth-child(8){height:90%}.bar:nth-child(9){height:85%}.bar:nth-child(10){height:100%;background:linear-gradient(180deg,var(--purple),var(--mid));opacity:1}
+
+/* SECTIONS */
+.section-eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--light);margin-bottom:.75rem;display:block}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:.75rem}
+.section-sub{font-size:.95rem;line-height:1.7;font-weight:300;max-width:520px}
+
+/* PILLARS */
+.pillars{padding:5rem 2rem;background:var(--deep);position:relative;overflow:hidden}
+.pillars::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(124,58,237,.2) 0%,transparent 70%);pointer-events:none}
+.pillars .section-title{color:white}.pillars .section-sub{color:rgba(255,255,255,.55)}
+.pillars .section-eyebrow{color:var(--light)}
+.pillars-header{text-align:center;margin-bottom:3rem}
+.pillars-header .section-sub{margin:0 auto}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;max-width:1100px;margin:0 auto}
+.pillar-card{background:rgba(255,255,255,.04);border:1px solid rgba(167,139,250,.15);border-radius:14px;padding:2rem 1.75rem;transition:all .3s;position:relative;overflow:hidden}
+.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple),var(--light));opacity:0;transition:opacity .3s}
+.pillar-card:hover{background:rgba(255,255,255,.07);border-color:rgba(167,139,250,.3);transform:translateY(-4px)}
+.pillar-card:hover::before{opacity:1}
+.pillar-icon{width:44px;height:44px;background:rgba(124,58,237,.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;font-size:1.3rem}
+.pillar-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:white;margin-bottom:.6rem}
+.pillar-text{font-size:.88rem;line-height:1.7;color:rgba(255,255,255,.5);font-weight:300}
+
+/* SERVICES */
+.services{padding:5rem 2rem;background:var(--frost)}
+.services-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.services-left .section-title{color:var(--deep)}.services-left .section-sub{color:var(--muted);margin-bottom:1.75rem}
+.services-left .section-eyebrow{color:var(--mid)}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.service-item{background:white;border:1px solid rgba(167,139,250,.2);border-radius:10px;padding:1.1rem;transition:all .2s}
+.service-item:hover{border-color:var(--light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(91,33,182,.08)}
+.service-icon{font-size:1.2rem;margin-bottom:.4rem;display:block}
+.service-name{font-size:.82rem;font-weight:500;color:var(--deep);line-height:1.3}
+
+/* BANKING */
+.bank{padding:5rem 2rem;background:white}
+.bank-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.bank-visual{background:linear-gradient(135deg,var(--deep) 0%,var(--purple) 100%);border-radius:18px;padding:2.5rem;position:relative;overflow:hidden}
+.bank-visual::before{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;background:rgba(255,255,255,.05);border-radius:50%}
+.bank-visual-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:white;margin-bottom:.4rem}
+.bank-visual-sub{font-size:.82rem;color:rgba(255,255,255,.55);margin-bottom:1.75rem;font-weight:300}
+.bank-features{display:flex;flex-direction:column;gap:.85rem}
+.bank-feature{display:flex;align-items:flex-start;gap:.65rem;background:rgba(255,255,255,.08);border-radius:9px;padding:.9rem;border:1px solid rgba(255,255,255,.1)}
+.bank-feature-icon{width:30px;height:30px;background:rgba(255,255,255,.15);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.bank-feature-text{font-size:.82rem;color:rgba(255,255,255,.8);line-height:1.5;font-weight:300}
+.bank-feature-text strong{color:white;font-weight:500;display:block;margin-bottom:.1rem}
+.bank-content .section-title{color:var(--deep)}.bank-content .section-sub{color:var(--muted);margin-bottom:1.25rem}
+.bank-content .section-eyebrow{color:var(--mid)}
+.bank-disclaimer{font-size:.78rem;color:var(--muted);border-left:2px solid var(--pale);padding-left:.85rem;line-height:1.6;font-style:italic}
+
+/* TRACK RECORD */
+.track{padding:5rem 2rem;background:var(--frost);text-align:center}
+.track .section-eyebrow{color:var(--mid)}
+.track .section-title{color:var(--deep);margin-bottom:.4rem}.track .section-sub{color:var(--muted);margin:0 auto 3rem}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;max-width:1000px;margin:0 auto}
+.stat-card{background:white;border:1px solid rgba(167,139,250,.2);border-radius:14px;padding:1.75rem 1.25rem;transition:all .2s}
+.stat-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(91,33,182,.1);border-color:var(--light)}
+.stat-val{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--purple);line-height:1;margin-bottom:.35rem}
+.stat-label{font-size:.78rem;color:var(--muted);font-weight:400;line-height:1.4}
+
+/* HOW IT WORKS */
+.how{padding:5rem 2rem;background:white}
+.how-inner{max-width:1100px;margin:0 auto}
+.how .section-eyebrow{color:var(--mid)}
+.how .section-title{color:var(--deep);margin-bottom:.4rem}.how .section-sub{color:var(--muted);margin-bottom:3rem}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.phase-card{background:var(--frost);border:1px solid rgba(167,139,250,.2);border-radius:14px;padding:1.75rem;transition:all .2s}
+.phase-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(91,33,182,.08)}
+.phase-number{width:38px;height:38px;background:linear-gradient(135deg,var(--purple),var(--light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:white;margin-bottom:1.25rem}
+.phase-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--deep);margin-bottom:.4rem}
+.phase-period{font-size:.72rem;color:var(--mid);font-weight:500;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.85rem}
+.phase-text{font-size:.85rem;color:var(--muted);line-height:1.7;font-weight:300}
+
+/* CONTACT */
+.contact{padding:5rem 2rem;background:var(--deep);text-align:center;position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:350px;background:radial-gradient(ellipse,rgba(124,58,237,.25) 0%,transparent 70%);pointer-events:none}
+.contact .section-eyebrow{color:var(--light)}
+.contact .section-title{color:white;margin-bottom:.6rem}.contact .section-sub{color:rgba(255,255,255,.5);margin:0 auto 2.5rem;max-width:460px}
+.contact-cards{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.contact-card{background:rgba(255,255,255,.06);border:1px solid rgba(167,139,250,.2);border-radius:12px;padding:1.25rem 1.75rem;text-decoration:none;transition:all .2s;min-width:200px;flex:1;max-width:240px}
+.contact-card:hover{background:rgba(255,255,255,.1);border-color:rgba(167,139,250,.4);transform:translateY(-3px)}
+.contact-card-icon{font-size:1.4rem;margin-bottom:.6rem;display:block}
+.contact-card-label{font-size:.68rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.25rem;display:block}
+.contact-card-value{font-size:.88rem;color:white;font-weight:400;word-break:break-all}
+
+/* FOOTER */
+footer{background:#0d0117;padding:1.75rem 2rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(167,139,250,.1);flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:white;letter-spacing:.05em}
+.footer-logo span{color:var(--light)}
+.footer-tagline{font-size:.75rem;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.25)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── MOBILE RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:1rem 1.25rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+
+  .hero{grid-template-columns:1fr;padding:5.5rem 1.5rem 3rem;text-align:center;gap:2rem}
+  .hero::before{display:none}
+  .hero-actions{justify-content:center}
+  .hero-visual{order:-1}
+  .hero-card{max-width:100%}
+
+  .pillars{padding:3.5rem 1.5rem}
+  .pillars-grid{grid-template-columns:1fr;gap:1rem}
+
+  .services{padding:3.5rem 1.5rem}
+  .services-inner{grid-template-columns:1fr;gap:2.5rem}
+  .services-grid{grid-template-columns:1fr 1fr}
+
+  .bank{padding:3.5rem 1.5rem}
+  .bank-inner{grid-template-columns:1fr;gap:2.5rem}
+
+  .track{padding:3.5rem 1.5rem}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:1rem}
+
+  .how{padding:3.5rem 1.5rem}
+  .phases{grid-template-columns:1fr;gap:1rem}
+
+  .contact{padding:3.5rem 1.5rem}
+  .contact-cards{flex-direction:column;align-items:center}
+  .contact-card{max-width:100%;width:100%}
+
+  footer{flex-direction:column;text-align:center;gap:.5rem}
+  .footer-tagline{display:none}
+
+  .section-title{font-size:1.9rem}
+  .pillars-header{margin-bottom:2rem}
+}
+
+@media(max-width:480px){
+  .hero-title{font-size:2.2rem}
+  .services-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .hero-card{padding:1.25rem}
+  .metric-val{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">A</div>
+    <span class="nav-logo-text">AGET<span>91</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#banking">Banking Access</a></li>
+    <li><a href="#track">Track Record</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#banking" onclick="closeMenu()">Banking Access</a>
+  <a href="#track" onclick="closeMenu()">Track Record</a>
+  <a href="#how" onclick="closeMenu()">How It Works</a>
+  <a href="#contact" onclick="closeMenu()">Get In Touch</a>
+</div>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Abuja, Nigeria SME Transformation</div>
+    <h1 class="hero-title">Your Growth,<br><em>Our Blueprint.</em></h1>
+    <p class="hero-sub">Aget91 is an operational consultancy firm that transforms Small and Medium Enterprises through Agile-driven management, proven systems and exclusive access to banking finance.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Work With Us</a>
+      <a href="#services" class="btn-secondary">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-header">
+        <span class="hero-card-title">Business Performance</span>
+        <span class="hero-card-badge">↑ Active</span>
+      </div>
+      <div class="metric-row">
+        <div class="metric">
+          <div class="metric-val">500%</div>
+          <div class="metric-label">Revenue Growth Achieved</div>
+        </div>
+        <div class="metric">
+          <div class="metric-val">7.5×</div>
+          <div class="metric-label">Net Profit Margin by Month 3</div>
+        </div>
+      </div>
+      <div class="chart-area">
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars" id="pillars">
+  <div class="pillars-header reveal">
+    <span class="section-eyebrow">The Aget91 Advantage</span>
+    <h2 class="section-title">Three Pillars. One Partnership.</h2>
+    <p class="section-sub">Most consultancies offer advice. Aget91 offers transformation backed by capital access and daily accountability.</p>
+  </div>
+  <div class="pillars-grid">
+    <div class="pillar-card reveal">
+      <div class="pillar-icon">⚙️</div>
+      <h3 class="pillar-title">Operational Expertise</h3>
+      <p class="pillar-text">Over 10 years of hands-on experience implementing systems, training staff and restructuring businesses using Agile methodology. Daily scrums, iterative reviews and rapid corrections we work inside your business every day.</p>
+    </div>
+    <div class="pillar-card reveal" style="transition-delay:.1s">
+      <div class="pillar-icon">🏦</div>
+      <h3 class="pillar-title">Banking & Finance Access</h3>
+      <p class="pillar-text">Businesses working with Aget91 gain exclusive access to loan facilities through our established banking partnership financing most businesses cannot access independently. Your growth should never be limited by capital.</p>
+    </div>
+    <div class="pillar-card reveal" style="transition-delay:.2s">
+      <div class="pillar-icon">📊</div>
+      <h3 class="pillar-title">Performance Monitoring</h3>
+      <p class="pillar-text">Daily scrums, real-time reporting, and active intervention mean errors are caught before they become losses. We stay in the business not just check in on it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-left reveal">
+      <span class="section-eyebrow">What We Do</span>
+      <h2 class="section-title">Full-Suite Operational Services</h2>
+      <p class="section-sub">Every engagement is tailored to what your specific business needs. We don't deploy a one-size-fits-all playbook we build your blueprint.</p>
+      <a href="#contact" class="btn-primary">Start a Conversation</a>
+    </div>
+    <div class="services-grid reveal" style="transition-delay:.15s">
+      <div class="service-item"><span class="service-icon">📒</span><span class="service-name">Finance & Accounting</span></div>
+      <div class="service-item"><span class="service-icon">📦</span><span class="service-name">Inventory Management</span></div>
+      <div class="service-item"><span class="service-icon">📈</span><span class="service-name">KPI Frameworks</span></div>
+      <div class="service-item"><span class="service-icon">💻</span><span class="service-name">Digital Systems</span></div>
+      <div class="service-item"><span class="service-icon">👥</span><span class="service-name">HR & Operations</span></div>
+      <div class="service-item"><span class="service-icon">📣</span><span class="service-name">Marketing & Branding</span></div>
+      <div class="service-item"><span class="service-icon">🎓</span><span class="service-name">Staff Training</span></div>
+      <div class="service-item"><span class="service-icon">🏦</span><span class="service-name">Finance Access</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="bank" id="banking">
+  <div class="bank-inner">
+    <div class="bank-visual reveal">
+      <div class="bank-visual-title">Banking Access Programme</div>
+      <div class="bank-visual-sub">Exclusive to Aget91 clients</div>
+      <div class="bank-features">
+        <div class="bank-feature">
+          <div class="bank-feature-icon">✅</div>
+          <div class="bank-feature-text"><strong>Supported Access</strong>Businesses under Aget91 management are supported in accessing loan facilities from our banking partner.</div>
+        </div>
+        <div class="bank-feature">
+          <div class="bank-feature-icon">📋</div>
+          <div class="bank-feature-text"><strong>Loan-Ready Reporting</strong>The financial structures Aget91 puts in place position your business to qualify for and responsibly service loans.</div>
+        </div>
+        <div class="bank-feature">
+          <div class="bank-feature-icon">🚀</div>
+          <div class="bank-feature-text"><strong>Growth Without Capital Limits</strong>Access the funding needed to scale without being held back by lack of financing.</div>
+        </div>
+      </div>
+    </div>
+    <div class="bank-content reveal" style="transition-delay:.15s">
+      <span class="section-eyebrow">Banking Partnership</span>
+      <h2 class="section-title">Capital Access, On Your Side.</h2>
+      <p class="section-sub">Most growing businesses in Nigeria struggle to access financing because they lack the financial structure lenders require. Aget91 builds that structure for you and connects you to a banking partner ready to fund your growth.</p>
+      <p class="bank-disclaimer">Loan facilities are subject to the banking partner's standard eligibility and approval criteria. Aget91 facilitates access and supports businesses in meeting requirements but does not guarantee loan approval.</p>
+    </div>
+  </div>
+</section>
+
+<section class="track" id="track">
+  <div class="reveal">
+    <span class="section-eyebrow">Proven Results</span>
+    <h2 class="section-title">The Numbers Speak.</h2>
+    <p class="section-sub">Our model isn't theoretical. These are real results from real businesses where Aget91's systems have been applied.</p>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card reveal"><div class="stat-val">500%</div><div class="stat-label">Revenue growth achieved in 6 months</div></div>
+    <div class="stat-card reveal" style="transition-delay:.1s"><div class="stat-val">7.5×</div><div class="stat-label">Net profit margin improvement by month 3</div></div>
+    <div class="stat-card reveal" style="transition-delay:.2s"><div class="stat-val">10+</div><div class="stat-label">Years of operational and management experience</div></div>
+    <div class="stat-card reveal" style="transition-delay:.3s"><div class="stat-val">8</div><div class="stat-label">Core service areas deployed across every engagement</div></div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="how-inner">
+    <div class="reveal">
+      <span class="section-eyebrow">The Process</span>
+      <h2 class="section-title">How Aget91 Works.</h2>
+      <p class="section-sub">A structured three-phase approach that builds your business from the inside out and keeps it growing.</p>
+    </div>
+    <div class="phases">
+      <div class="phase-card reveal">
+        <div class="phase-number">1</div>
+        <div class="phase-title">Foundation & Transformation</div>
+        <div class="phase-period">Months 1–3</div>
+        <p class="phase-text">We deploy backend systems finance, inventory, KPIs and rebuild the frontend: staff training, customer experience and how the business presents itself. Gross profit margins begin improving.</p>
+      </div>
+      <div class="phase-card reveal" style="transition-delay:.1s">
+        <div class="phase-number">2</div>
+        <div class="phase-title">Optimisation & Growth</div>
+        <div class="phase-period">Months 4–6</div>
+        <p class="phase-text">Re-budgeting based on Phase 1 data. Marketing strategy deployed. Banking access facilitated where needed. Systems fully embedded. Net profit margins improve materially.</p>
+      </div>
+      <div class="phase-card reveal" style="transition-delay:.2s">
+        <div class="phase-number">3</div>
+        <div class="phase-title">Monitoring & Accountability</div>
+        <div class="phase-period">Month 6 Onwards</div>
+        <p class="phase-text">Daily scrums. Real-time reporting. Active intervention when performance dips. Aget91 stays in the business for the full duration because results require consistency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="reveal">
+    <span class="section-eyebrow">Get In Touch</span>
+    <h2 class="section-title">Ready to Build Your Tomorrow?</h2>
+    <p class="section-sub">Whether you are a Small or Medium Enterprise looking for a consultancy partner, or an investor looking to work with us we would love to hear about your business.</p>
+  </div>
+  <div class="contact-cards">
+    <a href="mailto:aget91@gmail.com" class="contact-card reveal">
+      <span class="contact-card-icon">✉️</span>
+      <span class="contact-card-label">Email Us</span>
+      <span class="contact-card-value">aget91@gmail.com</span>
+    </a>
+    <a href="tel:+2348114448206" class="contact-card reveal" style="transition-delay:.1s">
+      <span class="contact-card-icon">📞</span>
+      <span class="contact-card-label">Call Us</span>
+      <span class="contact-card-value">+234 811 444 8206</span>
+    </a>
+    <div class="contact-card reveal" style="transition-delay:.2s">
+      <span class="contact-card-icon">📍</span>
+      <span class="contact-card-label">Location</span>
+      <span class="contact-card-value">Abuja, Nigeria</span>
+    </div>
+  </div>
+  <a href="mailto:aget91@gmail.com" class="btn-primary reveal" style="transition-delay:.3s">Send Us a Message</a>
+</section>
+
+<footer>
+  <div class="footer-logo">AGET<span>91</span></div>
+  <div class="footer-tagline">Your Growth, Our Blueprint</div>
+  <div class="footer-copy">© 2026 Aget91. All rights reserved.</div>
+</footer>
+
+<script>
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
